@@ -1,34 +1,26 @@
 #include <iostream>
-#include <cmath>
+#include <math.h>
 
 using namespace std;
+int main()
+{
+    double x, f, u, s=0;
+    int i, k=0;
+    cout << "Input x= ";
+    cin >> x;
+    cout << "\nResults:\n";
 
-int main(){
-    
-	double sum = 0, formula, x; //sum , formula, x in formula;
-	int k = 1, step_factorial = 1, factorial; //k - varible in external loop,
-									  //step_factorial - varible in internal loop 
-	cout << "Input x = "; // aler about "input x"
-	cin >> x; // input x
+    do{ // do-while loop
+        k++; // Increasing variable k on 1
+        for(i=1,f=1; i<=k+3; i++)
+            f *= i; // Calculation of factorial
+        u = (pow(-1, k)*pow(x,2*k-1)) / (k*f); // Calculation of k-summand
+        cout << k<<" summand = " << u << endl;
+        s+=u; // Add the new addend to the sum
+    }while(fabs(u)>=1e-4);
 
-   while (k<=7)
-   {    
-       k++;
-       factorial = 1;
-       while (step_factorial<=k+3)
-       {
-           step_factorial++;
-           factorial *= step_factorial;
-		formula = (pow(-1,k)*pow(x,2*k-1))/(k*factorial);
-		sum += formula;
-        cout << "k - " << k << " ---> " << formula << endl;
-       }
-   }
-    cout << "\nSum = " << sum << endl;
-	system("pause");
+    cout << "sum = " << s << endl;
+    cout << "count of summands = " << k << endl;
+    system("pause");
+    return 0;
 }
-
-
-
-
-
