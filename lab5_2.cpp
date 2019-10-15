@@ -10,18 +10,18 @@ int main()
 
   //for loop
   for (k=1; k<=5; k++)
-    S1 += pow(x,k+1)/(pow(2.,k)+k);
+    S1 += (sin(2.*k*x) + 0.2)/(2.*k+5.); 
 
   //while loop
   k = 1;
   while (k <= 5){
-    S2 += pow(x,k+1)/(pow(2.,k)+k);
+    S2 += (sin(2.*k*x) + 0.2)/(2.*k+5.); 
     k++;
   }
   //do..while loop
   k = 1;
   do {
-    S3 += pow(x,k+1)/(pow(2.,k)+k);
+    S3 += (sin(2.*k*x) + 0.2)/(2.*k+5.); 
     k++;
   }
   while (k <= 5);
